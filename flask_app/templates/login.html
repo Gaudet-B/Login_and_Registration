@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Log in to Your Account</title>
+</head>
+<body>
+    <div class="container d-flex flex-column">
+        <h3>login to your account</h3>
+        <form action="/login/verify" class="form">
+            <div class="d-flex flex-row">
+                <label for="email" id="email_label" name="email_label" class="text">email address:</label>
+                <input type="text" id="email_input" name="email_input" class="form-control">
+            </div>
+            <div class="d-flex flex-row">
+                <label for="password" id="password_label" name="password_label" class="text">password:</label>
+                <input type="text" id="password_input" name="password_input" class="form-control">
+            </div>
+            <button class="btn btn-outline-dark">login</button>
+        </form>
+    </div>
+</body>
+</html>

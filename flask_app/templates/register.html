@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Register a New Account</title>
+</head>
+<body>
+    <div class="container d-flex flex-column">
+        <h3>register a new account</h3>
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="text-light bg-danger border border-light rounded p-2">*{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <form action="/register/verify" method="post" class="form">
+            <div class="d-flex flex-row">
+                <label for="first_name_input" id="first_name_label" name="first_name_label" class="text">first name:</label>
+                <input type="text" id="first_name_input" name="first_name_input" class="form-control">
+            </div>
+            <div class="d-flex flex-row">
+                <label for="last_name_input" id="last_name_label" name="last_name_label" class="text">last name:</label>
+                <input type="text" id="last_name_input" name="last_name_input" class="form-control">
+            </div>
+            <div class="d-flex flex-row">
+                <label for="email" id="email_label" name="email_label" class="text">email address:</label>
+                <input type="text" id="email_input" name="email_input" class="form-control">
+            </div>
+            <div class="d-flex flex-row">
+                <label for="password" id="password_label" name="password_label" class="text">password:</label>
+                <input type="text" id="password_input" name="password_input" class="form-control">
+            </div>
+            <div class="d-flex flex-row">
+                <label for="confirm" id="confirm_label" name="confirm_label" class="text">confirm password:</label>
+                <input type="text" id="confirm_input" name="confirm_input" class="form-control">
+            </div>
+            <button class="btn btn-outline-dark">register</button>
+        </form>
+        <div>
+            <p>already have an account?</p>
+            <a class="btn btn-outline-dark" href="/login">login</a>
+        </div>
+    </div>
+</body>
+</html>
