@@ -32,6 +32,21 @@ def verify_registration():
     User.new_user(data)
     return redirect("/success")
 
+@app.route("/users/login", methods=['POST'])
+def login_user():
+    data = {
+            "email": request.form['email_input']
+        }
+    user = User.get_user_by_email(data)
+    if not user:
+        flash("Invalid Email/Password")
+        return redirect("/")
+    if not bcrypt.check_password_hash(user[0]['password'], request.form['password_login']):
+        flash("Invalid Email/Password")
+        return redirect("/")
+    session['user_id'] = user[0]['id']
+    return redirect("/users/dashboard")
+
 @app.route("/success")
 def success():
     users = User.get_all()
@@ -46,6 +61,7 @@ def login_page():
 def verify_login():
     return redirect("/success")
 
-@app.route("/logout")
-def logout():
-    return redirect("")
+@app.route("/users/logout")
+def logout_user():
+    session.clear()
+    return redirect("/")

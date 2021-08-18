@@ -55,14 +55,6 @@ class User:
             flash("passwords do not match.")
             is_valid = False
         return is_valid
-    
-    # @staticmethod
-    # def validate_registration(user):
-    #     is_valid = True
-    #     if len(user['name']) < 3:
-    #         flash("")
-    #         is_valid = False
-    #     if len(user['email'])
 
     @classmethod
     def new_user(cls, data):
